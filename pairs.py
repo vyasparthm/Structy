@@ -7,15 +7,23 @@ You can assume that the input list contains unique elements.
 """
 def pairs(inp:list)-> list[str]:
     new_list = []
-    for item in inp[:-1]:
-        for item in inp[1:]:
-            if item != item +1:
-                new_list.append(item,)
+    for i in range(0,len(inp)):
+        for j in range(i+1,len(inp)):
+            pair = [inp[i],inp[j]]
+            new_list.append(pair)
+            
+
     return new_list
 
+
+       
+
 def main():
-    a = input("enter list: ")
-    print(pairs(a))
+  
+    print(pairs(['a','b']))
+    print(pairs(['a','b','c']))
+    print(pairs(['a','b','c','a']))
+    
 
 
 if __name__ == "__main__":
