@@ -4,14 +4,23 @@ rules is a list of (divisor, word) pairs. For each number from 1 to n, join the 
 If no rule applies, keep the number itself. The function should work for any number of rules.
 custom_fizz_buzz(10, [(2, "foo"), (3, "bar")]) → [1, "foo", "bar", "foo", 5, "foobar", 7, "foo", "bar", "foo"]
 """
+# def custom_fizz_buzz(n:int, rules:list[tuple[int,str]])-> list:
+#     result = []
+#     for i in range(1, n+1):
+#         matched_words = [word for divisor,word in rules if i % divisor == 0]
+#         if matched_words:
+#             result.append("".join(matched_words))
+#         else:
+#             result.append(i)
+#     return result
+
 def custom_fizz_buzz(n:int, rules:list[tuple[int,str]])-> list:
     result = []
     for i in range(1, n+1):
-        matched_words = [word for divisor,word in rules if i % divisor == 0]
-        if matched_words:
-            result.append("".join(matched_words))
-        else:
-            result.append(i)
+        matched_words = "".join([word for divisor,word in rules if i % divisor == 0])
+        result.append(matched_words or i)
+        
     return result
+
 
 print(custom_fizz_buzz(10, [(2, "foo"), (3, "bar"),(4,"bla")]))
